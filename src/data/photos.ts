@@ -11,7 +11,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 1500,
     photographer: "Samuel Zeller",
-    tags: ["architecture", "minimalisme", "moderne"]
+    tags: ["architecture", "minimalisme", "moderne"],
+    likes: 24,
+    dislikes: 3,
+    createdAt: new Date("2023-09-15")
   },
   {
     id: "2",
@@ -22,7 +25,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 667,
     photographer: "Guillaume Bolduc",
-    tags: ["océan", "coucher de soleil", "nature"]
+    tags: ["océan", "coucher de soleil", "nature"],
+    likes: 42,
+    dislikes: 5,
+    createdAt: new Date("2023-10-05")
   },
   {
     id: "3",
@@ -33,7 +39,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 750,
     photographer: "Aleks Dahlberg",
-    tags: ["ville", "architecture", "géométrie"]
+    tags: ["ville", "architecture", "géométrie"],
+    likes: 18,
+    dislikes: 2,
+    createdAt: new Date("2023-08-25")
   },
   {
     id: "4",
@@ -44,7 +53,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 667,
     photographer: "Alex Talmon",
-    tags: ["forêt", "nature", "brume"]
+    tags: ["forêt", "nature", "brume"],
+    likes: 36,
+    dislikes: 1,
+    createdAt: new Date("2023-11-12")
   },
   {
     id: "5",
@@ -55,7 +67,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 750,
     photographer: "Ricardo Gomez Angel",
-    tags: ["nature", "roche", "texture"]
+    tags: ["nature", "roche", "texture"],
+    likes: 29,
+    dislikes: 4,
+    createdAt: new Date("2023-07-30")
   },
   {
     id: "6",
@@ -66,7 +81,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 667,
     photographer: "Sean O.",
-    tags: ["abstrait", "lignes", "harmonie"]
+    tags: ["abstrait", "lignes", "harmonie"],
+    likes: 51,
+    dislikes: 7,
+    createdAt: new Date("2023-10-18")
   },
   {
     id: "7",
@@ -77,7 +95,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 1500,
     photographer: "Simon Zhu",
-    tags: ["architecture", "équilibre", "design"]
+    tags: ["architecture", "équilibre", "design"],
+    likes: 33,
+    dislikes: 3,
+    createdAt: new Date("2023-09-29")
   },
   {
     id: "8",
@@ -88,7 +109,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 668,
     photographer: "Chris Barbalis",
-    tags: ["ville", "reflets", "moderne"]
+    tags: ["ville", "reflets", "moderne"],
+    likes: 27,
+    dislikes: 2,
+    createdAt: new Date("2023-12-05")
   },
   {
     id: "9",
@@ -99,7 +123,10 @@ export const photos: Photo[] = [
     width: 1000,
     height: 563,
     photographer: "Simon Matzinger",
-    tags: ["hiver", "neige", "minimalisme"]
+    tags: ["hiver", "neige", "minimalisme"],
+    likes: 38,
+    dislikes: 1,
+    createdAt: new Date("2023-11-28")
   }
 ];
 

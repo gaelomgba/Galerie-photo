@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import PhotoGrid from "@/components/PhotoGrid";
+import AddPhotoForm from "@/components/AddPhotoForm";
 import { photos } from "@/data/photos";
 import { cn } from "@/lib/utils";
 
@@ -40,6 +41,8 @@ const Index = () => {
           <PhotoGrid photos={photos} />
         </section>
       </main>
+      
+      <AddPhotoForm />
     </div>
   );
 };

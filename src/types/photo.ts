@@ -9,4 +9,8 @@ export interface Photo {
   height: number;
   photographer: string;
   tags: string[];
+  likes: number;
+  dislikes: number;
+  userId?: string;
+  createdAt: Date;
 }

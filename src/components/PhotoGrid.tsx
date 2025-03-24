@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Photo } from "@/types/photo";
 import AnimatedImage from "./AnimatedImage";
 import { cn } from "@/lib/utils";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
 
 interface PhotoGridProps {
   photos: Photo[];
@@ -68,6 +69,16 @@ const PhotoGrid = ({ photos }: PhotoGridProps) => {
               <p className="text-white/80 text-sm truncate">
                 {photo.photographer}
               </p>
+              <div className="flex items-center gap-4 mt-2">
+                <div className="flex items-center text-white gap-1">
+                  <ThumbsUp className="h-3 w-3" />
+                  <span className="text-xs">{photo.likes || 0}</span>
+                </div>
+                <div className="flex items-center text-white gap-1">
+                  <ThumbsDown className="h-3 w-3" />
+                  <span className="text-xs">{photo.dislikes || 0}</span>
+                </div>
+              </div>
             </div>
           </Link>
         );

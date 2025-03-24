@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { Photo } from "@/types/photo";
 import AnimatedImage from "./AnimatedImage";
 import { cn } from "@/lib/utils";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
+import { photos } from "@/data/photos";
 
 interface PhotoDetailProps {
   photo: Photo;
@@ -10,6 +14,8 @@ interface PhotoDetailProps {
 
 const PhotoDetail = ({ photo }: PhotoDetailProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentPhoto, setCurrentPhoto] = useState<Photo>(photo);
+  const { toast } = useToast();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,6 +24,39 @@ const PhotoDetail = ({ photo }: PhotoDetailProps) => {
     
     return () => clearTimeout(timer);
   }, []);
+
+  // Dans un cas réel, ces fonctions feraient des appels API
+  const handleLike = () => {
+    setCurrentPhoto(prev => {
+      const updated = { ...prev, likes: prev.likes + 1 };
+      // Update in the photos array too (in a real app this would be an API call)
+      const index = photos.findIndex(p => p.id === photo.id);
+      if (index !== -1) {
+        photos[index] = updated;
+      }
+      toast({
+        title: "Vous avez aimé cette photo",
+        description: "Merci pour votre contribution!",
+      });
+      return updated;
+    });
+  };
+
+  const handleDislike = () => {
+    setCurrentPhoto(prev => {
+      const updated = { ...prev, dislikes: prev.dislikes + 1 };
+      // Update in the photos array too (in a real app this would be an API call)
+      const index = photos.findIndex(p => p.id === photo.id);
+      if (index !== -1) {
+        photos[index] = updated;
+      }
+      toast({
+        title: "Vous n'avez pas aimé cette photo",
+        description: "Merci pour votre retour!",
+      });
+      return updated;
+    });
+  };
 
   return (
     <div className="container mx-auto px-4 py-24 flex flex-col lg:flex-row gap-8 items-start">
@@ -29,8 +68,8 @@ const PhotoDetail = ({ photo }: PhotoDetailProps) => {
         )}
       >
         <AnimatedImage 
-          src={photo.src} 
-          alt={photo.alt} 
+          src={currentPhoto.src} 
+          alt={currentPhoto.alt} 
           className="w-full aspect-auto max-h-[80vh] object-contain"
           priority
         />
@@ -44,29 +83,51 @@ const PhotoDetail = ({ photo }: PhotoDetailProps) => {
         )}
       >
         <div className="space-y-2">
-          <h1 className="text-2xl font-medium">{photo.title}</h1>
-          <p className="text-muted-foreground">{photo.description}</p>
+          <h1 className="text-2xl font-medium">{currentPhoto.title}</h1>
+          <p className="text-muted-foreground">{currentPhoto.description}</p>
         </div>
         
         <div className="glass-card p-4 space-y-4">
           <div>
             <h3 className="text-sm font-medium text-muted-foreground">Photographe</h3>
-            <p>{photo.photographer}</p>
+            <p>{currentPhoto.photographer}</p>
           </div>
           
           <div>
             <h3 className="text-sm font-medium text-muted-foreground">Dimensions</h3>
-            <p>{photo.width} × {photo.height}</p>
+            <p>{currentPhoto.width} × {currentPhoto.height}</p>
           </div>
           
           <div>
             <h3 className="text-sm font-medium text-muted-foreground">Tags</h3>
             <div className="flex flex-wrap gap-2 mt-2">
-              {photo.tags.map(tag => (
+              {currentPhoto.tags.map(tag => (
                 <span key={tag} className="px-2 py-1 rounded-full bg-secondary text-xs">
                   {tag}
                 </span>
               ))}
+            </div>
+          </div>
+
+          <div className="pt-4">
+            <div className="flex items-center justify-between">
+              <Button 
+                variant="outline" 
+                className="flex items-center gap-2" 
+                onClick={handleLike}
+              >
+                <ThumbsUp className="h-4 w-4" />
+                <span>{currentPhoto.likes}</span>
+              </Button>
+              
+              <Button 
+                variant="outline" 
+                className="flex items-center gap-2" 
+                onClick={handleDislike}
+              >
+                <ThumbsDown className="h-4 w-4" />
+                <span>{currentPhoto.dislikes}</span>
+              </Button>
             </div>
           </div>
         </div>
