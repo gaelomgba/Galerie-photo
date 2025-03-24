@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import PhotoGrid from "@/components/PhotoGrid";
 import BestPhotos from "@/components/BestPhotos";
+import ThematicJourneys from "@/components/ThematicJourneys";
 import AddPhotoForm from "@/components/AddPhotoForm";
 import { photos } from "@/data/photos";
 import { cn } from "@/lib/utils";
@@ -41,6 +42,9 @@ const Index = () => {
           
           {/* Section des meilleures photos */}
           <BestPhotos />
+          
+          {/* Section des parcours thématiques */}
+          <ThematicJourneys />
           
           {/* Section de la grille de photos */}
           <div className="mt-12">
