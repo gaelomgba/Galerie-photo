@@ -13,7 +13,7 @@ export const photos = [
     tags: ["architecture", "minimalisme", "moderne"],
     likes: 24,
     dislikes: 2,
-    createdAt: new Date("2023-06-15")
+    createdAt: new Date() // Aujourd'hui
   },
   {
     id: "2",
@@ -27,7 +27,7 @@ export const photos = [
     tags: ["nature", "macro", "abstrait"],
     likes: 18,
     dislikes: 0,
-    createdAt: new Date("2023-07-22")
+    createdAt: new Date(new Date().setDate(new Date().getDate() - 3)) // 3 jours avant
   },
   {
     id: "3",
@@ -41,7 +41,7 @@ export const photos = [
     tags: ["urbain", "ombres", "lumière"],
     likes: 15,
     dislikes: 1,
-    createdAt: new Date("2023-08-05")
+    createdAt: new Date(new Date().setDate(new Date().getDate() - 10)) // 10 jours avant
   },
   {
     id: "4",
@@ -55,7 +55,7 @@ export const photos = [
     tags: ["paysage", "symétrie", "eau"],
     likes: 32,
     dislikes: 3,
-    createdAt: new Date("2023-09-18")
+    createdAt: new Date(new Date().setMonth(new Date().getMonth() - 1)) // 1 mois avant
   },
   {
     id: "5",
@@ -69,7 +69,7 @@ export const photos = [
     tags: ["urbain", "solitude", "minimalisme"],
     likes: 27,
     dislikes: 2,
-    createdAt: new Date("2023-10-10")
+    createdAt: new Date(new Date().setMonth(new Date().getMonth() - 3)) // 3 mois avant
   },
   {
     id: "6",
@@ -81,8 +81,8 @@ export const photos = [
     height: 800,
     photographer: "Lucie Moreau",
     tags: ["architecture", "géométrie", "design"],
-    likes: 19,
+    likes: 39,
     dislikes: 0,
-    createdAt: new Date("2023-11-05")
+    createdAt: new Date(new Date().setFullYear(new Date().getFullYear() - 1)) // 1 an avant
   }
 ];

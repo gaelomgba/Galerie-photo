@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import PhotoGrid from "@/components/PhotoGrid";
+import BestPhotos from "@/components/BestPhotos";
 import AddPhotoForm from "@/components/AddPhotoForm";
 import { photos } from "@/data/photos";
 import { cn } from "@/lib/utils";
@@ -38,7 +39,14 @@ const Index = () => {
             </p>
           </div>
           
-          <PhotoGrid photos={photos} />
+          {/* Section des meilleures photos */}
+          <BestPhotos />
+          
+          {/* Section de la grille de photos */}
+          <div className="mt-12">
+            <h2 className="text-2xl font-medium mb-6 text-center">Toutes les photos</h2>
+            <PhotoGrid photos={photos} />
+          </div>
         </section>
       </main>
       
